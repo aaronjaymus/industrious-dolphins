@@ -8,7 +8,8 @@ import {
     Tabs,
     Tab,
     FormControl,
-    ButtonToolbar
+    ButtonToolbar,
+    Alert
 } from 'react-bootstrap/lib/';
 
 class Greeting extends Component {
@@ -24,7 +25,7 @@ class Greeting extends Component {
         password: ''
         },
         userLogged: '',
-        isLoggedIn: false,
+        display: 'displayNone',
         showModal: false,
 
         // Sign up states
@@ -82,7 +83,7 @@ class Greeting extends Component {
             groupName: groupNameSelected,
             groupNew: newGroup
         })
-        .then(this.setState({showModal: false}));
+        .then(window.location.href = 'http://localhost:3000/addtool');
     // window.location.href = 'http://localhost:3000/getMyTools'
     // hard coded to go to home page
     }
@@ -98,15 +99,50 @@ class Greeting extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-       
+        var error = 'displayNone';
+
 	  	axios.post("/checkLogin", {
 	  		email: this.state.email,
 	  		password: this.state.password
-	  	}).then(this.setState({isLoggedIn: true}))
-        .then(this.setState({showModal: false}))
-        console.log("isLoggedIn = " + this.state.isLoggedIn);
+
+	  	}).then(res => {
+            window.location.href = 'http://localhost:3000/getMyTools'
+        }, reason => {
+            console.log(".......")
+            console.log(this.state.display)
+            this.setState({display: ''});
+            console.log(this.state.display)
+        })
+
+        // .catch(
+        //     function (err) {
+        //         if (err.response) {
+        //             error = '';
+        //         }
+        //     }
+        // )
+        // this.setState({display: error})
+        // .then(console.log(this.state.isLoggedIn))
+        // validateLogin();
+
         console.log('Email: ' + this.state.email + ' and Password: ' + this.state.password);
     }
+
+//     p1.then( value => {
+//   console.log(value); // Success!
+// }, reason => {
+//   console.log(reason); // Error!
+// } );
+
+    // validateLogin() {
+    //     if(axios.get("/checkLogin")) {
+    //         this.setState({isLoggedIn: true});
+    //         window.location.href = 'http://localhost:3000/addtool';
+    //     }
+    //     else {
+    //         this.setState({ validation: "error"});
+    //     }
+    // }
 
     close() {
         this.setState({showModal: false});
@@ -132,6 +168,7 @@ class Greeting extends Component {
         console.log(newArray)
     }
 
+
     render() {
         var groupNameEntered;
 
@@ -153,6 +190,9 @@ class Greeting extends Component {
                         <Tab eventKey={1} title="Sign In">
                             <Modal.Body>
                                 <h2 className="black">Welcome back!</h2>
+                                <Alert bsStyle="danger" className={this.state.display}>
+                                    <p className="small">Incorrect email or password</p>
+                                </Alert>
 
                                 <form onSubmit={this.handleSubmit}>
                                     <label className="black" >E-mail</label>
@@ -162,6 +202,7 @@ class Greeting extends Component {
                                     id="email"
                                     onChange={this.handleChange}
                                     placeholder="email@email.com"
+                                    // validationState={this.state.validation}
                                     required
                                     />
 

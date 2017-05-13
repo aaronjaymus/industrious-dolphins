@@ -8,6 +8,10 @@ body, html {
 	font-family: 'Roboto Condensed', sans-serif;
 }
 
+.displayNone {
+	display:none;
+}
+
 .overlay {
 	 background: rgba(0, 2, 2, .8);
 	 height:auto;
@@ -81,6 +85,10 @@ p {
 	font-family: 'Roboto', sans-serif;
 	font-size: 20px;
 }
+p.small {
+	font-family: 'Roboto', sans-serif;
+	font-size: 15px;
+}
 
 a {
 	color: #5C6A7C;
@@ -131,4 +139,20 @@ a {
 .btn-primary:active, .btn-primary:hover, .btn-primary:focus, .btn-primary:active:focus {
 	background-color: #5C6A7C;
 	border-color: #5C6A7C;
+}
+
+.img {
+	height: auto;
+	max-width: 100%;
+}
+
+span {
+	font-family: 'Oswald', sans-serif;
+	font-size: 25px;
+}
+.logo1 {
+	/*color: #435265;*/
+}
+.logo2 {
+	
 }
