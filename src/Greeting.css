@@ -140,3 +140,19 @@ a {
 	background-color: #5C6A7C;
 	border-color: #5C6A7C;
 }
+
+.img {
+	height: auto;
+	max-width: 100%;
+}
+
+span {
+	font-family: 'Oswald', sans-serif;
+	font-size: 25px;
+}
+.logo1 {
+	/*color: #435265;*/
+}
+.logo2 {
+	
+}
