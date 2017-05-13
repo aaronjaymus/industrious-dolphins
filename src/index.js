@@ -66,13 +66,15 @@ ReactDOM.render(
 		<Switch>
 			<Route exact path="/" component={App}> ></Route>
 			<Route path="/submitUser" component={SignUp} history={history} ></Route>
-			<Route path="/createGroup" component={CreateGroup}></Route>
 
-		        <Route path="/addtool" component={AddTool}></Route>
-		        <Route path="/borrowtool" component={BorrowTool}></Route>
-		        <Route path="/getMyTools" component={MyTools}></Route>
-		        <Route path="/returntool" component={ReturnTool}></Route>
-		        <Route path="/replacetool" component={ReplaceTool}></Route>  
+			{/*<Route path="/createGroup" component={CreateGroup}></Route>*/}
+      <Route path="/addtool" component={AddTool}></Route>
+      <Route path="/borrowtool" component={BorrowTool}></Route>
+      <Route path="/getMyTools" component={MyTools}></Route>
+      <Route path="/returntool" component={ReturnTool}></Route>
+      {/*<Route path="/replacetool" component={ReplaceTool}></Route>*/}
+
+
 		    
  		</Switch>
     </div>

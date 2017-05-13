@@ -37,7 +37,9 @@ class SignUp extends Component {
     $('<option />', { value: -1, text: "Select an Existing Group" }).appendTo(s);
     axios.get("/getGroups", {
     })
-    .then(function(response){
+    .then( (response) => {
+      console.log("groups in db ", response);
+      console.log(response.data.length);
       for (var i=0; i < response.data.length; i++) {
          newArray.push(response.data[i].groupName); 
          $('<option />', { value: i, text: response.data[i].groupName }).appendTo(s);

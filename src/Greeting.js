@@ -104,6 +104,7 @@ class Greeting extends Component {
 	  	axios.post("/checkLogin", {
 	  		email: this.state.email,
 	  		password: this.state.password
+
 	  	}).then(res => {
             window.location.href = 'http://localhost:3000/getMyTools'
         }, reason => {
@@ -123,6 +124,7 @@ class Greeting extends Component {
         // this.setState({display: error})
         // .then(console.log(this.state.isLoggedIn))
         // validateLogin();
+
         console.log('Email: ' + this.state.email + ' and Password: ' + this.state.password);
     }
 
@@ -193,7 +195,7 @@ class Greeting extends Component {
                                 </Alert>
 
                                 <form onSubmit={this.handleSubmit}>
-                                    <label className="black" for="email">E-mail</label>
+                                    <label className="black" >E-mail</label>
                                     <FormControl
                                     type="text"
                                     value={this.state.text}
@@ -204,7 +206,7 @@ class Greeting extends Component {
                                     required
                                     />
 
-                                    <label className="black"for="password">Password</label>
+                                    <label className="black">Password</label>
                                     <FormControl
                                     type="password"
                                     value={this.state.text}
@@ -225,7 +227,7 @@ class Greeting extends Component {
                                 <h2 className="black">Join the club!</h2>
 
                                 <form onSubmit={this.submitUserDetails}>
-                                    <label className="black"for="emailRecd">E-mail</label>
+                                    <label className="black">E-mail</label>
                                     <FormControl
                                     type="text"
                                     value={this.state.text}
@@ -235,7 +237,7 @@ class Greeting extends Component {
                                     required
                                     />
 
-                                    <label className="black"for="passwordRecd">Password</label>
+                                    <label className="black">Password</label>
                                     <FormControl
                                     type="password"
                                     value={this.state.text}
@@ -244,7 +246,7 @@ class Greeting extends Component {
                                     required
                                     />
 
-                                    <label className="black"for="confirmPasswordRecd">Confirm Password</label>
+                                    <label className="black">Confirm Password</label>
                                     <FormControl
                                     type="password"
                                     value={this.state.text}
@@ -253,7 +255,7 @@ class Greeting extends Component {
                                     required
                                     />
 
-                                    <label className="black"for="firstNameRecd">First Name</label>
+                                    <label className="black">First Name</label>
                                     <FormControl
                                     type="text"
                                     value={this.state.text}
@@ -263,7 +265,7 @@ class Greeting extends Component {
                                     required
                                     />
 
-                                    <label className="black"for="lastNameRecd">Last Name</label>
+                                    <label className="black">Last Name</label>
                                     <FormControl
                                     type="text"
                                     value={this.state.text}
@@ -273,7 +275,7 @@ class Greeting extends Component {
                                     required
                                     /><hr/>
 
-                                    <label className="black" for="groupSelect">Join an Existing Group</label>
+                                    <label className="black" >Join an Existing Group</label>
                                     <div className="form-group" id="groupSelect"></div>
                                     <p>or</p>
 
