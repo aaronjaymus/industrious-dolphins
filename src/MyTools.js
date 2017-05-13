@@ -85,6 +85,9 @@ class MyTools extends Component {
 								<div key={tool._id} className="toolEntry">
 									<h4>{tool.toolName}</h4>
 									<img src={tool.toolUrl} alt="" />
+										<h4>
+											{tool.toolStatus ?  'Available' : 'Borrowed by: ' + tool.toolHeldBy}
+										</h4>
 								</div>
 									)
 								
