@@ -50,8 +50,8 @@ module.exports = function (app) {
   // We will call this route the moment our page gets rendered
   app.post("/isUserLoggedIn", function(req, res) {
     console.log("inside isUserLoggedIn");
-    if (req.user.id) {
-      res.json(req.user.id);
+    if (req.user) {
+      res.json(true);
     } else {
       res.json(false);
     }
