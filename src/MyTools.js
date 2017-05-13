@@ -72,21 +72,30 @@ class MyTools extends Component {
 			// 		<h2>MyTools Page</h2>
 
 
-			<div className="UsersTools container">
+			<div className="UsersTools container overlay">
 
 
 						<div className="UserAddress">
 							{this.props.useraddress}
 						</div>
-						<div id="userToolDiv" className="UsersTools">
-							<h2>Your tools</h2>
+						<div id="userToolDiv" className="UsersTools col-md-12">
+							<h1 className="white">My Tools</h1><br />
+
 							{this.state.thisUsersTools.map(function(tool) {
 								return(
-								<div key={tool._id} className="toolEntry">
-									<h4>{tool.toolName}</h4>
-									<img src={tool.toolUrl} alt="" />
-								</div>
-									)
+									<div className="col-md-4">
+										<div key={tool._id} className="toolEntry thumbnail">
+											<img src={tool.toolUrl} className="img-responsive" />
+											<div className="caption">
+												<h3>{tool.toolName}</h3>
+												<p>
+													{/* {tool.toolStatus ?  'Available' : 'Borrowed by: ' + tool.toolHeldBy} */}
+													{tool.toolStatus ?  'Available' : 'Rented Out'}
+												</p>
+											</div>
+										</div>
+									</div>
+								)
 								
 							})}
 						</div>
