@@ -5,36 +5,37 @@ import {
 	Redirect
 } from 'react-router-dom';
 
-class EnsureLoggedInContainer extends React.Component {
+class WelcomeName extends React.Component {
 
   constructor(props) {
     super(props);
 
     this.state = { 
-      redirect: false
+      isLoggedIn: false,
+      firstName: ''
     };
   }
 
   componentDidMount() {
     // const { dispatch, currentURL } = this.props
-    axios.get("/checkLogin").then(res => { this.setState({redirect: res})});
+    axios.get("/checkLogin").then(res => { this.setState({isLoggedIn: res})});
   }
 
+
   render() {
-    
-    if (this.state.redirect) {
-      console.log("redirect me!")
-      return;
-      // return <Redirect to={{
-      //   pathname: '/submitTool'
-      // }}/>
+
+    if (this.state.isLoggedIn) {
+      this.setState({firstName: this.state.isLoggedIn.firstName})
+      console.log("I'm logged in!")
+      console.log(this.state.isLoggedIn)
+      return this.state.firstName;
     } else {
       console.log("false")
-      return false;
+      return 'hello';
       // hard code redirect
       // return window.location.href = 'http://localhost:3000/getMyTools';
     }
   }
 }
 
-export default EnsureLoggedInContainer;
+export default WelcomeName;
