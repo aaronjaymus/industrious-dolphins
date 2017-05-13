@@ -49,7 +49,7 @@ ReactDOM.render(
 			        <span className="icon-bar"></span>
 			        <span className="icon-bar"></span>      
 			      </button>
-			      <a className="navbar-brand" href="/">Tool Share</a>
+			      <a className="navbar-brand" href="/"><span className="logo1">Tool</span><span className="logo2">Share</span></a>
 			    </div>
 			    <div id="navbar" className="navbar-collapse collapse">
 			      <ul className="nav navbar-nav pull-right">
