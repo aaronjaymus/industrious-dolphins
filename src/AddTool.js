@@ -27,6 +27,20 @@ class AddTool extends Component {
 		this.addTool = this.addTool.bind(this);	
 	}
 
+	componentDidMount(){
+		console.log("browserHistory = ", browserHistory);
+		console.log("inside Component Did Mount Add tool");
+		axios.post("/isUserLoggedIn", {
+		})
+		.then ((response) => {
+			console.log("response to check user log in status = " + response.data);
+			if (!response.data) {
+				console.log("go back to home page");
+				window.location.href = 'http://localhost:3000/';
+			}
+		})
+	}
+	
 	handleSubmit(event) {
 		event.preventDefault;
 		//call addTool function
