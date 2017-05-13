@@ -28,7 +28,7 @@ class AddTool extends Component {
 	}
 
 	componentDidMount(){
-		console.log("browserHistory = ", browserHistory);
+
 		console.log("inside Component Did Mount Add tool");
 		axios.post("/isUserLoggedIn", {
 		})
