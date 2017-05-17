@@ -30,6 +30,20 @@ class MyTools extends Component {
 		}
 	}
 
+	componentWillMount(){
+
+		console.log("inside Component Will Mount My tool");
+		axios.post("/isUserLoggedIn", {
+		})
+		.then ((response) => {
+			console.log("response to check user log in status = " + response.data);
+			if (!response.data) {
+				console.log("go back to home page");
+				window.location.href = 'http://localhost:3000/';
+			}
+		})
+	}	
+
 	componentDidMount() {
 
 		console.log("componentDidMount MyTools");
