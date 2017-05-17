@@ -27,7 +27,7 @@ class AddTool extends Component {
 		this.addTool = this.addTool.bind(this);	
 	}
 
-	componentDidMount(){
+	componentWillMount(){
 
 		console.log("inside Component Did Mount Add tool");
 		axios.post("/isUserLoggedIn", {

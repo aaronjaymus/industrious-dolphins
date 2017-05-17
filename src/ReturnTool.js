@@ -32,6 +32,20 @@ class ReturnTool extends Component {
 		this.getReturnable();
 	}
 
+	componentWillMount(){
+
+		console.log("inside Component Did Mount Return tool");
+		axios.post("/isUserLoggedIn", {
+		})
+		.then ((response) => {
+			console.log("response to check user log in status = " + response.data);
+			if (!response.data) {
+				console.log("go back to home page");
+				window.location.href = 'http://localhost:3000/';
+			}
+		})
+	}	
+
 	componentDidUpdate (prevState, prevProps) {
 
 		if(this.state.update){
