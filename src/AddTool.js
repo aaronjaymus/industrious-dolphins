@@ -42,7 +42,7 @@ class AddTool extends Component {
 	}
 	
 	handleSubmit(event) {
-		event.preventDefault();
+		// event.preventDefault();
 		//call addTool function
 		this.addTool(this.state.toolName, this.state.toolPrice, this.state.toolCondition, this.state.toolMaxDays, this.state.toolUrl);
 		//Reset the state of the component
@@ -101,7 +101,7 @@ class AddTool extends Component {
 				<h1>Add A Tool</h1>
 
 				<form onSubmit={this.handleSubmit}>
-					<div className="form-group">
+					<div className="form-group" id="half">
 						<label for="toolNameInput">Tool</label>
 						<input 
 							type="text"
