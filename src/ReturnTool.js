@@ -4,8 +4,6 @@ import {
 	Button,
 	ButtonGroup
 } from 'react-bootstrap/lib/';
-// import "./ReturnTool.css";
-// import axios from "axios";
 
 class ReturnTool extends Component {
 
@@ -59,9 +57,9 @@ class ReturnTool extends Component {
 			for(var i=0; i<response.data.length; i++){
 				returnable.push(response.data[i]);
 			}
-			console.log("getReturnable result: " +JSON.stringify(returnable));
+			// console.log("getReturnable result: " +JSON.stringify(returnable));
 			this.setState({ returnableTools: returnable });
-			console.log(this.state.returnableTools);			
+			// console.log(this.state.returnableTools);			
 		});
 	}	
 
@@ -90,33 +88,33 @@ class ReturnTool extends Component {
 		return(
 			<div className="ReturnTool container overlay">
 				<h1>Return A Tool</h1> <br/>
-					<div className="thumbnails">
-						{this.state.returnableTools.map(function(search, i){
-							return (
-								<div className="col-md-4 col-xs-6">
-									<div className="thumbnail">
-										<div className="img-container">
-											<img src={search.toolUrl} className="img-responsive" alt={search.toolName} />
-										</div>
-										<div className="caption">
-											<h3>{search.toolName}</h3>
-											<p>Owner: {search.toolOwnerName}</p>
-											<p>Condition: {search.toolCondition}</p>
-											<ButtonGroup >
-												<Button
-													bsStyle="primary"
-													value={i}
-													onClick={() => this.handleClick(i)}
-												>
-													Return
-												</Button>	
-											</ButtonGroup>
-										</div>		
+				<div className="thumbnails">
+					{this.state.returnableTools.map(function(search, i){
+						return (
+							<div className="col-md-4 col-xs-6">
+								<div className="thumbnail">
+									<div className="img-container">
+										<img src={search.toolUrl} className="img-responsive" alt={search.toolName} />
 									</div>
+									<div className="caption">
+										<h3>{search.toolName}</h3>
+										<p>Owner: {search.toolOwnerName}</p>
+										<p>Condition: {search.toolCondition}</p>
+										<ButtonGroup >
+											<Button
+												bsStyle="primary"
+												value={i}
+												onClick={() => this.handleClick(i)}
+											>
+												Return
+											</Button>	
+										</ButtonGroup>
+									</div>		
 								</div>
-							)
-						}, this)}
-					</div>				
+							</div>
+						)
+					}, this)}
+				</div>				
 			</div>
 		);
 	}

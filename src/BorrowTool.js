@@ -5,7 +5,7 @@ class BorrowTool extends Component {
 	render(){
 		return(
 			<div className="BorrowTool container overlay">
-				<h1>Borrow Tools</h1>
+				<h1>The Toolshed</h1>
 				<Available />
 			</div>
 		);

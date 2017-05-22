@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from "axios";
 import $ from "jquery";
-import './Greeting.css';
+import './style.css';
 import {
     Modal,
     Button,
