@@ -135,39 +135,39 @@ class Available extends Component {
 	render(){
 		return(
 			<section>
-				<div className="available container col-md-12">
+				<div className="available container row thumbnail">
 					<h2>Available Tools</h2>
-					<div className="thumbnails">
 						{this.state.availableTools.map(function(search, i){
 							return (
-									<div className="col-md-4">
-										<div className="thumbnail">
-											<img src={search.toolUrl} className="img-responsive" />
-											<div className="caption">
-												<h3>{search.toolName}</h3>
-												<p>Owner: {search.toolOwnerName}</p>
-												{/*<p>Condition: {search.toolCondition}</p>*/}
-												<ButtonGroup >
-													<Button
-														bsStyle="primary"
-														value={i}
-														onClick= {() => this.handleClick(i)}
-													>
-														Borrow
-													</Button>	
-													<Button
-														value={i}
-														onClick={this.open}
-													>
-														More Info
-													</Button>
-												</ButtonGroup>
-											</div>		
-										</div>									
-									</div>
-								)
+								<div className="col-md-4 col-xs-6">
+									<div className="thumbnail">
+										<div className="img-container">
+											<img src={search.toolUrl} className="img-responsive" alt={search.toolName}/>
+										</div>
+										<div className="caption">
+											<h3>{search.toolName}</h3>
+											<p>Owner: {search.toolOwnerName}</p>
+											{/*<p>Condition: {search.toolCondition}</p>*/}
+											<ButtonGroup>
+												<Button
+													bsStyle="primary"
+													value={i}
+													onClick={() => this.handleClick(i)}
+												>
+													Borrow
+												</Button>	
+												<Button
+													value={i}
+													onClick={this.open}
+												>
+													More Info
+												</Button>
+											</ButtonGroup>
+										</div>		
+									</div>	
+								</div>
+							)
 						}, this)}
-					</div>
 				</div>
 				<Modal show={this.state.showModal} onHide={this.close} bsSize="small" aria-labelledby="contained-modal-title-sm">
 					<Modal.Header>

@@ -13,7 +13,8 @@ body, html {
 }
 
 .overlay {
-	 background: rgba(0, 2, 2, .8);
+	 /*background: rgba(0, 2, 2, .8);*/
+	 background: white;
 	 height:auto;
 }
 
@@ -27,12 +28,13 @@ body, html {
 label {
 	font-size: 15px;
 	font-weight: 400;
-	color:white;
+	/*color:white;*/
+	color: #333;
 	margin-top: 8px;
 	margin-bottom: 2px;
 	width:100%;
 	text-align: left !important;
-	text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+	/*text-shadow: 2px 2px 3px rgba(0,0,0,0.6);*/
 }
 
 /*Forms*/
@@ -62,12 +64,13 @@ label.black {
 }
 
 /*Text*/
-.white, h2 {
+.white {
 	color: white;
 	text-shadow: 2px 2px 3px rgba(0,0,0,0.9);
 }
 
 h2 {
+	color: #333;
 	font-size: 40px;
 }
 
@@ -77,6 +80,7 @@ h2.black {
 }
 
 h1 {
+	color: #333;
 	font-family: 'Oswald', sans-serif;
 	font-size: 100px;
 }
@@ -141,9 +145,12 @@ a {
 	border-color: #5C6A7C;
 }
 
-.img {
-	height: auto;
-	max-width: 100%;
+img {
+	margin-left: auto;
+	margin-right: auto;
+	/*display: block;*/
+	max-height: 100%;
+	/*max-width: 100%;*/
 }
 
 span {
@@ -155,4 +162,19 @@ span {
 }
 .logo2 {
 	
+}
+
+.img-container {
+	/*float:center;*/
+	/*text-align: center;*/
+	/*vertical-align: middle;*/
+	/*display: table-cell;*/
+	/*width: 300px;  whatever set width */
+    height: 200px;
+    /*display: inline-block;  or you could float them */
+    overflow: hidden;
+}
+
+.toolEntry {
+	text-align: center;
 }

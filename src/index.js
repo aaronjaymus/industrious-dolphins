@@ -3,34 +3,23 @@ import {
 	BrowserRouter as Router,
 	Route,
 	NavLink,
-	Switch, Redirect
+	Switch
 } from 'react-router-dom';
 import ReactDOM from 'react-dom';
-
-// React-Bootstrap & CSS
-import './index.css';
 
 // Navbar Pages
 import MyTools from "./MyTools";
 import AddTool from "./AddTool";
 import BorrowTool from "./BorrowTool";
 import ReturnTool from "./ReturnTool";
-import ReplaceTool from "./ReplaceTool";
-import EnsureLoggedInContainer from "./EnsureLoggedInContainer";
-// import WelcomeName from "./WelcomeName";
-// import Login from './Login';
-import SignUp from './SignUp';
-import CreateGroup from "./CreateGroup";
+// import ReplaceTool from "./ReplaceTool";
 
-import App from './App';
+import SignUp from './SignUp';
 import Greeting from './Greeting';
 
-// Modals
-import BorrowModal from "./BorrowModal";
-import AddToolModal from "./AddToolModal"; 
+// import App from './App';
 
-import Available from "./Available";
-import Unavailable from "./Unavailable";
+// import CreateGroup from "./CreateGroup";
 
 //import createBrowserHistory from 'history/createBrowserHistory';
 //const history = createBrowserHistory();
@@ -64,17 +53,15 @@ ReactDOM.render(
 		</nav>
 
 		<Switch>
-			<Route exact path="/" component={App}> ></Route>
+			<Route exact path="/" component={Greeting}> ></Route>
 			<Route path="/submitUser" component={SignUp} history={history} ></Route>
 
 			{/*<Route path="/createGroup" component={CreateGroup}></Route>*/}
-      <Route path="/addtool" component={AddTool}></Route>
-      <Route path="/borrowtool" component={BorrowTool}></Route>
-      <Route path="/getMyTools" component={MyTools}></Route>
-      <Route path="/returntool" component={ReturnTool}></Route>
-      {/*<Route path="/replacetool" component={ReplaceTool}></Route>*/}
-
-
+			<Route path="/addtool" component={AddTool}></Route>
+			<Route path="/borrowtool" component={BorrowTool}></Route>
+			<Route path="/getMyTools" component={MyTools}></Route>
+			<Route path="/returntool" component={ReturnTool}></Route>
+      		{/*<Route path="/replacetool" component={ReplaceTool}></Route>*/}
 		    
  		</Switch>
     </div>
@@ -84,10 +71,3 @@ ReactDOM.render(
 	,
 	document.getElementById('root')
 );
-
-//<Route component={EnsureLoggedInContainer}></Route> ** for line 71 and 77
-{/* render={() => (
-  		// 		{EnsureLoggedInContainer} ?
-    // 				(<Redirect to="/submitUser"/>) :
-    // 				(<Redirect to="/addtool"/> )
-				// )}> */}

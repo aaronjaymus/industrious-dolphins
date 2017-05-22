@@ -3,9 +3,6 @@ import axios from 'axios';
 import "./AddTool";
 import "./MyTools.css";
 
-//import Login from "./Login";
-// // import User from "../models/User.js";
-
 // class MyTools extends Component {
 // componentDidMount(){
 // 	return axios.get("/mytools")
@@ -18,7 +15,7 @@ import "./MyTools.css";
 // 	})
 // }
 	
-import $ from "jquery";
+// import $ from "jquery";
 
 class MyTools extends Component {
 	constructor (props) {
@@ -87,32 +84,31 @@ class MyTools extends Component {
 
 
 			<div className="UsersTools container overlay">
+				<div className="UserAddress">
+					{this.props.useraddress}
+				</div>
+				<div id="userToolDiv" className="UsersTools col-md-12">
+					<h1>My Tools</h1><br />
 
-
-						<div className="UserAddress">
-							{this.props.useraddress}
-						</div>
-						<div id="userToolDiv" className="UsersTools col-md-12">
-							<h1 className="white">My Tools</h1><br />
-
-							{this.state.thisUsersTools.map(function(tool) {
-								return(
-									<div className="col-md-4">
-										<div key={tool._id} className="toolEntry thumbnail">
-											<img src={tool.toolUrl} className="img-responsive" />
-											<div className="caption">
-												<h3>{tool.toolName}</h3>
-												<p>
-													{/* {tool.toolStatus ?  'Available' : 'Borrowed by: ' + tool.toolHeldBy} */}
-													{tool.toolStatus ?  'Available' : 'Rented Out'}
-												</p>
-											</div>
-										</div>
+					{this.state.thisUsersTools.map(function(tool) {
+						return(
+							<div className="col-md-4 col-xs-6">
+								<div key={tool._id} className="toolEntry thumbnail">
+									<div className="img-container">
+										<img src={tool.toolUrl} className="img-responsive" alt={tool.toolName} />
 									</div>
-								)
-								
-							})}
-						</div>
+									<div className="caption">
+										<h3>{tool.toolName}</h3>
+										<p>
+											{/* {tool.toolStatus ?  'Available' : 'Borrowed by: ' + tool.toolHeldBy} */}
+											{tool.toolStatus ?  'Available' : 'Rented Out'}
+										</p>
+									</div>
+								</div>
+							</div>
+						)
+					})}
+				</div>
 			</div>
 		);
 	}

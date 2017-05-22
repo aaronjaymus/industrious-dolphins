@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-//import "./Unavailable.css";
-import axios from 'axios';
 
 class Unavailable extends Component {
 
@@ -28,9 +26,11 @@ class Unavailable extends Component {
 					<div className="thumbnails">
 						{this.state.unavailableTools.map(function(search, i){
 							return (
-								<div className="col-md-4">
+								<div className="col-md-4 col-xs-6">
 									<div className="thumbnail">
-										<img src={search.toolUrl} className="img-responsive" />
+										<div className="img-container">
+											<img src={search.toolUrl} className="img-responsive" alt={search.toolName} />
+										</div>
 										<div className="caption">
 											<h3>{search.toolName}</h3>
 											<p>Owner: {search.toolOwnerName}</p>

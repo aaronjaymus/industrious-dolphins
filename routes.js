@@ -29,9 +29,9 @@ module.exports = function (app) {
     if (req.user) {
       return req.user;
     }
-    else {
-      return false;
-    }
+    // else {
+    //   // return false;
+    // }
 
     // if (req.session.passport.user) {
     //   return true;
@@ -40,6 +40,10 @@ module.exports = function (app) {
     // res.send(req.session.passport.user);
   });
 
+  // app.get('/logout', function(req, res){
+  //   req.logout();
+  //   console.log(req.user)
+  // });
 
   // Main "/" Route. This will redirect the user to our rendered React application
   app.get('/', function(req, res) {
