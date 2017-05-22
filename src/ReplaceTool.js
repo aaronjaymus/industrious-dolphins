@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import "./ReplaceTool.css";
+// import "./ReplaceTool.css";
 
 class ReplaceTool extends Component {
 	render(){

@@ -24,7 +24,7 @@ class Greeting extends Component {
         email: '',
         password: ''
         },
-        userLogged: '',
+        // userLoggedIn: false,
         display: 'displayNone',
         showModal: false,
 
@@ -43,6 +43,8 @@ class Greeting extends Component {
     this.handleGroupNameChange = this.handleGroupNameChange.bind(this);
 
     // Login binds
+    // this.validateLogin = this.validateLogin.bind(this);
+    // this.handleLogout = this.handleLogout.bind(this);
     this.open = this.open.bind(this);
     this.close = this.close.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -60,7 +62,7 @@ class Greeting extends Component {
         
         console.log("Submit button clicked to sign up");
         // assume user selected an existing group
-        var newGroup = false; // false to true (TEMPORARY)
+        var newGroup = false;
         var groupNameSelected = $("#dropDown :selected").text();
         // var groupNameSelected = "Test Group 777";
         // check to see if user selected an existing group
@@ -85,28 +87,28 @@ class Greeting extends Component {
         })
         .then(window.location.href = 'http://localhost:3000/addtool');
     // window.location.href = 'http://localhost:3000/getMyTools'
-    // hard coded to go to home page
     }
 
     // Login functions
     handleChange(event) {
         var newState = {};
         newState[event.target.id] = event.target.value;
-        console.log("inside handlechange")
-        console.log(newState)
+        // console.log("inside handlechange")
+        // console.log(newState)
         this.setState(newState);
     }
 
     handleSubmit(event) {
         event.preventDefault();
-        var error = 'displayNone';
 
 	  	axios.post("/checkLogin", {
 	  		email: this.state.email,
 	  		password: this.state.password
-
 	  	}).then(res => {
-            window.location.href = 'http://localhost:3000/getMyTools'
+            // console.log("before " + this.state.userLoggedIn)            
+            // this.setState({userLoggedIn: true});
+            // console.log("after " + this.state.userLoggedIn)
+            window.location.href = 'http://localhost:3000/getMyTools' 
         }, reason => {
             console.log(".......")
             console.log(this.state.display)
@@ -114,34 +116,22 @@ class Greeting extends Component {
             console.log(this.state.display)
         })
 
-        // .catch(
-        //     function (err) {
-        //         if (err.response) {
-        //             error = '';
-        //         }
-        //     }
-        // )
-        // this.setState({display: error})
-        // .then(console.log(this.state.isLoggedIn))
-        // validateLogin();
-
-        console.log('Email: ' + this.state.email + ' and Password: ' + this.state.password);
     }
 
-//     p1.then( value => {
-//   console.log(value); // Success!
-// }, reason => {
-//   console.log(reason); // Error!
-// } );
+    // handleLogout() {
+    //     axios.get("/logout")
+    //     // .then(this.setState({userLoggedIn: false}));
+    // }
 
     // validateLogin() {
-    //     if(axios.get("/checkLogin")) {
-    //         this.setState({isLoggedIn: true});
-    //         window.location.href = 'http://localhost:3000/addtool';
-    //     }
-    //     else {
-    //         this.setState({ validation: "error"});
-    //     }
+    //     console.log("inside validate login");
+    //     console.log(this.state.userLoggedIn);
+
+    //     axios.get("/checkLogin").then(res => {
+    //         this.setState({userLoggedIn: true});
+    //     }, reason => {
+    //         this.setState({userLoggedIn: false});
+    //     });
     // }
 
     close() {
@@ -151,6 +141,7 @@ class Greeting extends Component {
     open() {
         this.setState({showModal: true});
         this.setState({ groupNameRecd: "" }); 
+
         // get list of group names in the database to show the user to choose
         var newArray = this.state.arrayOfGroups;
         var s = $('<select class="form-control" id="dropDown">');
@@ -171,20 +162,51 @@ class Greeting extends Component {
 
     render() {
         var groupNameEntered;
+        // const isLoggedIn = this.state.userLoggedIn
+        
+        // let button = null;
+        // console.log(isLoggedIn);
+
+        //  if (isLoggedIn) {
+        //   button = <Button
+        //                 bsStyle="primary"
+        //                 bsSize="large"
+        //                 onClick={this.handleLogout}
+        //             >
+        //             Log out!
+        //             </Button>
+        //     // button = <LogoutButton onClick={this.handleLogoutClick} />;
+        // } else {
+        //     button = <Button
+        //                 bsStyle="primary"
+        //                 bsSize="large"
+        //                 onClick={this.open}
+        //             >
+        //             Sign in or Sign up now!
+        //             </Button>
+        //         // button = <LoginButton onClick={this.handleLoginClick} />;
+        // }
 
         return(
             <div className="Mission container">
                 <h1 className="white">ToolShare</h1>
                 <p className="white">Why buy when you can share?</p>
 
-                <Button
-                    bsStyle="primary"
-                    bsSize="large"
-                    onClick={this.open}
-                >
-                Sign in or Sign up now!
-                </Button>
+                    <Button
+                        bsStyle="primary"
+                        bsSize="large"
+                        onClick={this.open}
+                    >
+                    Sign in or Sign up now!
+                    </Button>
 
+                    {/*<Button
+                        bsStyle="primary"
+                        bsSize="large"
+                        onClick={this.handleLogout}
+                    >
+                    Log out!
+                    </Button>*/}
                 <Modal show={this.state.showModal} onHide={this.close} bsSize="small" aria-labelledby="contained-modal-title-sm">
                     <Tabs defaultActiveKey={1} id="uncontrolled-tab-example">
                         <Tab eventKey={1} title="Sign In">
@@ -202,7 +224,6 @@ class Greeting extends Component {
                                     id="email"
                                     onChange={this.handleChange}
                                     placeholder="email@email.com"
-                                    // validationState={this.state.validation}
                                     required
                                     />
 
